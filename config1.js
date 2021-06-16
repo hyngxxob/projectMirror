@@ -1,0 +1,323 @@
+/* Magic Mirror Config Sample
+ *
+ * By Michael Teeuw https://michaelteeuw.nl
+ * MIT Licensed.
+ *
+ * For more information on how you can configure this file
+ * See https://github.com/MichMich/MagicMirror#configuration
+ *
+ */
+
+var config = {
+	address: "localhost", 	// Address to listen on, can be:
+	// - "localhost", "127.0.0.1", "::1" to listen on loopback interface
+	// - another specific IPv4/6 to listen on a specific interface
+	// - "0.0.0.0", "::" to listen on any interface
+	// Default, when address config is left out or empty, is "localhost"
+	port: 8080,
+	basePath: "/", 	// The URL path where MagicMirror is hosted. If you are using a Reverse proxy
+	// you must set the sub path here. basePath must end with a /
+	ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1"], 	// Set [] to allow all IP addresses
+	// or add a specific IPv4 of 192.168.1.5 :
+	// ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
+	// or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
+	// ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
+
+	useHttps: false, 		// Support HTTPS or not, default "false" will use HTTP
+	httpsPrivateKey: "", 	// HTTPS private key path, only require when useHttps is true
+	httpsCertificate: "", 	// HTTPS Certificate path, only require when useHttps is true
+
+	language: "ko",
+	logLevel: ["INFO", "LOG", "WARN", "ERROR"], // Add "DEBUG" for even more logging
+	timeFormat: 24,
+	units: "metric",
+	// serverOnly:  true/false/"local" ,
+	// local for armv6l processors, default
+	//   starts serveronly and then starts chrome browser
+	// false, default for all NON-armv6l devices
+	// true, force serveronly mode, because you want to.. no UI on this device
+
+	modules: [
+		{
+			module: "alert",
+			config: {
+				effect: "genie",
+				alert_effect: "slide",
+				welcome_message: "자 안녕안녕",
+				message: "그러게 말이요",
+			}
+		},
+		{
+			module: "updatenotification",
+			position: "top_bar"
+		},
+		{
+			module: "clock",
+			position: "top_left"
+		},
+		{
+			module: "calendar",
+			header: "나의 일정",
+			position: "top_left",
+			config: {
+				calendars: [
+					{
+						symbol: "calendar-check",
+						url: "https://calendar.google.com/calendar/ical/qksehgus%40gmail.com/private-883eb7f2af944eb984e1c94ffeefebd5/basic.ics"
+					}
+				]
+			}
+		},
+		{
+			module: "compliments",
+			position: "lower_third",
+			config: {
+				updateInterval: "5000",
+				fadeSpeed: "2000",
+				compliments: {			//Json 데이터, url값 받아올 수 있음(추후 json으로 데이터 보내고 가져오기 가능{업데이트})
+					anytime: [
+						"언제나 나오는거"
+					],
+					morning: [
+						"아침에 나오는거"
+					],
+					afternoon: [
+						"오후에 나오는거"
+					],
+					evening: [
+						"밤에나오는거"
+					]
+				}
+			}
+		},
+		{
+			module: "currentweather",
+			position: "top_right",
+			config: {
+				location: "천안시",
+				locationID: "1845759", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
+				appid: "f11f9f1a61d67822430e6721f26d11b4"
+			}
+		},
+		{
+			module: "weatherforecast",
+			position: "top_right",
+			header: "날씨",
+			config: {
+				location: "천안시",
+				locationID: "1845759", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
+				appid: "f11f9f1a61d67822430e6721f26d11b4"
+			}
+		},
+		{
+			module: "newsfeed",
+			position: "bottom_bar",
+			config: {
+				feeds: [
+					{
+						title: "SBS",
+						url: "http://world.kbs.co.kr/rss/rss_economy.htm?lang=k",
+					}
+				],
+				showSourceTitle: true,
+				showPublishDate: true,
+				broadcastNewsFeeds: true,
+				broadcastNewsUpdates: true,
+				reloadInterval: 300000,
+				updateInterval: 5000,
+
+			}
+		},
+		{
+			module: "MMM-NewsFeed",
+			position: "bottom_bar",
+			configDeepMerge: true,
+			config: {
+				debug: false,
+				update: "15m",
+				speed: "15s",
+				maxItem: 100,
+				flux: [
+					{
+						from: "SBS",
+						url: "https://news.sbs.co.kr/news/SectionRssFeed.do?sectionId=01&plink=RSSREADER"
+					},
+					{	
+						from : "KBS",
+						url : "http://world.kbs.co.kr/rss/rss_hotissue.htm?lang=k"
+					},
+				],
+				personalize: {
+					Name: "NewsFeed",
+					NameField: true,
+					NameColor: "#FFF",
+					NameBackground: "#414141",
+					ArticleColor: "#000",
+					ArticleBackground: "#AAA",
+					DescriptionColor: "#000",
+					DescriptionBackground: "#FFF",
+					QRCode: true
+				},
+				vertical: {
+					useVertical: false,
+					width: "450px",
+					imageMaxWidth: "20vw",
+					imageMaxHeight: "20vh"
+				}
+			}
+
+		},
+		{
+			module: 'MMM-AirQuality',
+			position: 'top_left',
+			config: {
+				location: 'seoul',
+				lang: "kr"
+			}
+		},
+		{
+			module: 'calendar_monthly',
+			position: 'top_right',
+			config: {
+				fadeSpeed: '2',
+				cssStyle: 'block',
+				updateDelay: '5'
+			}
+		},
+		{
+			module: "MMM-GoogleAssistant",
+			position: "top_bar",
+			config: {
+				assistantConfig: {
+					lang: "ko-KR",
+					latitude: 37.33,
+					longitude: 126.59,
+				},
+				micConfig: { // put there configuration generated by auto-installer
+					recorder: "arecord",
+					device: "plughw:2",
+				},
+
+				snowboy: {
+					audioGain: 2.0,
+					Frontend: true,
+					Model: "smart_mirror",
+					Sensitivity: null
+				},
+				A2DServer: {
+					useA2D: true,
+					stopCommand: "스톱",
+					useYouTube: true,
+					youtubeCommand: "유튜브",
+					displayResponse: true
+				},
+			}
+		},
+		{
+			module: "MMM-Assistant2Display",
+			position: "top_left",
+			config: {
+				debug: false,
+				youtube: {
+					useYoutube: true,
+					useVLC: false,
+				},
+				useYoutube: true,
+				links: {
+					useLinks: true,
+					displayDelay: 60 * 1000,
+					scrollStep: 25,
+					scrollInterval: 1000,
+					scrollStart: 5000,
+					scrollActivate: false,
+					verbose: false
+				},
+				photos: {
+					usePhotos: true,
+					displayDelay: 10 * 1000
+				},
+				volume: {
+					useVolume: true,
+					volumePreset: "ALSA",
+					myScript: null
+				},
+				briefToday: {
+					useBriefToday: false,
+					welcome: "brief Today"
+				},
+				screen: {
+					useScreen: true,
+					delay: 5 * 60 * 1000,
+					turnOffDisplay: true,
+					mode: 1,
+					ecoMode: true,
+					displayCounter: true,
+					displayBar: false,
+					displayStyle: "Text",
+					text: "Auto Turn Off Screen:",
+					detectorSleeping: false,
+					governorSleeping: false,
+					displayLastPresence: true,
+					LastPresenceText: "Last Presence:",
+					delayed: 0
+				},
+				touch: {
+					useTouch: false,
+					mode: 3
+				},
+				pir: {
+					usePir: false,
+					gpio: 21,
+					reverseValue: false
+				},
+				governor: {
+					useGovernor: false,
+					sleeping: "powersave",
+					working: "ondemand"
+				},
+				internet: {
+					useInternet: false,
+					displayPing: false,
+					delay: 2 * 60 * 1000,
+					scan: "google.fr",
+					command: "pm2 restart 0",
+					showAlert: true
+				},
+				cast: {
+					useCast: true,
+					castName: "TMirror",
+					port: 8569
+				},
+				spotify: {
+					useSpotify: true, // activate spotify module
+					useIntegred: true, // activate visual of spotify listening on any device
+					useLibrespot: true, // activate spotify audio playing
+					connectTo: "Librespot", // define the name of MagicMirror spotify device 
+					playDelay: 3000, // wait 3sec to start music
+					minVolume: 10, // Volume to set when assistant is speaking
+					maxVolume: 100, // volume to set on the start of the device
+					updateInterval: 1000, // update interval for display new data (useIntegred is needed)
+					idleInterval: 10000, // update interval on idle: delay to search if music is played (useIntegred needed)
+					username: "aene3", // define this with your spotify email (useLibrespot needed)
+					password: "yJez", // define this with your password (useLibrespot needed)
+					CLIENT_ID: "f6d4fd8", // define your CLIENT_ID (useIntegred needed)
+					CLIENT_SECRET: "a1e4c21e", // define your CLIENT_SECRET (useIntegred needed)
+					deviceDisplay: "Listening on", // replace this value by your language
+					usePause: true, // Use stop or pause when librespot finish to play (useLibrespot needed)
+					typeArtist: "artist", // translated type of search for artist
+					typePlaylist: "playlist", // translated type of search for playlist
+					typeAlbum: "album", // translated type of search for album
+					typeTrack: "track", // translated type of search for track
+				},
+				NPMCheck: {
+					useChecker: true,
+					delay: 10 * 60 * 1000,
+					useAlert: true
+				},
+			}
+		},
+	]
+};
+
+/*************** DO NOT EDIT THE LINE BELOW ***************/
+if (typeof module !== "undefined") { module.exports = config; }
