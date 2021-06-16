@@ -6,11 +6,11 @@
 	String k = request.getParameter("type");
 	String l = request.getParameter("location");
 %>
-<%= x%>
-<%= y%>
-<%= z%>
-<%= k%>
-<%= l%>
+<%= x%><br>
+<%= y%><br>
+<%= z%><br>
+<%= k%><br>
+<%= l%><br>
 
 
 <%

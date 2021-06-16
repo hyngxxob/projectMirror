@@ -47,7 +47,7 @@ p {
 					<th class="showPeriod">오전/오후 표시
 					<td class="showPeriod"><input type="radio" name="showPer"
 						value="showPer">AM/PM 표시 <input type="radio"
-						name="hindPer" value="hindPer">AM/PM 미표시</td>
+						name="showPer" value="hindPer">AM/PM 미표시</td>
 					</th>
 				</tr>
 			</tbody>
