@@ -64,15 +64,3 @@
 </body>
 </html>
 
-
-
-<%
-	if (module.equals("clock")) {
-%>
-<form action="clock_custom.jsp" method="GET" name="jaslun">
-	<input type="hidden" name="location" value="<%out.print(location);%>">
-	<input type="hidden" name="module" value="<%out.print(module);%>">
-</form>
-<%
-	}
-%>*/

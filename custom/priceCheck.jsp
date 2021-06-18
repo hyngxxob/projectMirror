@@ -39,7 +39,7 @@
 
 		}
 	}
-	String test = new String("module: \"undatenotification\","); //바꿀내용
+	String test = new String("module: \"currentweather\","); //바꿀내용
 	for (int i = 0; i < listPage.size() - 1; i++) { //바꾸기 모듈 파일 읽기		모듈화 필요
 		String stt = listPage.get(i).replaceAll("\t", ""); //탭 제거
 		if (stt == null)
