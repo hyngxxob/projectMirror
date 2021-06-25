@@ -31,11 +31,11 @@ p {
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active_1"><a class="nav-link" href="custom/custom_web.jsp">위젯 편집
+				<li class="nav-item active_1"><a class="nav-link" href="custom_web.jsp">위젯 편집
 				</a></li>
-				<li class="nav-item active_2"><a class="nav-link" href="custom/weatherforecast_custom.jsp">시계
+				<li class="nav-item active_2"><a class="nav-link" href="weatherforecast_custom.jsp">시계
 				</a></li>
-				<li class="nav-item active_3"><a class="nav-link" href="custom/newsfeed_custom.jsp">뉴스
+				<li class="nav-item active_3"><a class="nav-link" href="newsfeed_custom.jsp">뉴스
 				</a></li>
 				<li class="nav-item active_4"><a class="nav-link" href="#">달력
 				</a></li>
