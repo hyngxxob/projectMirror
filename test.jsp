@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,5 +8,9 @@
 </head>
 <body>
 
+	<%=request.getParameter("eve")%>
+	<%=request.getParameter("mor")%>
+	<%=request.getParameter("aft")%>
+	<%=request.getParameter("nig")%>
 </body>
 </html>
