@@ -10,7 +10,7 @@ Module.register("MMM-weatherforecast",{
 
 	// Default module config.
 	defaults: {
-		location: false,
+		location: 'seoul',
 		locationID: false,
 		appid: "",
 		units: config.units,
