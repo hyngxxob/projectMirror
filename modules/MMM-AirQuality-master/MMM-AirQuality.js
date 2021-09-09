@@ -7,8 +7,8 @@
 Module.register('MMM-AirQuality', {
 	// Default module config.
 	defaults: {
-		lang: '',
-		location: '',
+		lang: 'kr',
+		location: 'seoul',
 		showLocation: true,
 		showIndex: true,
 		updateInterval: 30, // every 30 minutes
