@@ -10,9 +10,9 @@ Module.register("MMM-weatherforecast",{
 
 	// Default module config.
 	defaults: {
-		location: 'seoul',
-		locationID: false,
-		appid: "",
+		location: 'Cheonan',
+		locationID: '1845759',
+		appid: "f11f9f1a61d67822430e6721f26d11b4",
 		units: config.units,
 		maxNumberOfDays: 7,
 		layout: "default",
