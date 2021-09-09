@@ -105,7 +105,7 @@ var config = {
 			 position: 'top_right',
     			 config: {
  	     		  alarms: [
-           			 {time: "18:30", days: [2,4], title: "Soccer", message: "Get ready for soccer training!", sound: "alarm.mp3"},           
+           			 {time: "07:00", days: [2,4], title: "Soccer", message: "Get ready for soccer training!", sound: "alarm.mp3"},           
        			 ],
    		 }
 		 },
