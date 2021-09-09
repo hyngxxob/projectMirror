@@ -94,6 +94,14 @@ var config = {
 			}
 		},
 		{
+ 			 module: 'MMM-AlarmClock',
+			 position: 'top_right',
+    			 config: {
+ 	     		  alarms: [
+           			 {time: "18:30", days: [2,4], title: "Soccer", message: "Get ready for soccer training!", sound: "alarm.mp3"},           
+       			 ],
+   		 }
+		 },
 			module: "newsfeed",
 			position: "top_right",
 			config: {
