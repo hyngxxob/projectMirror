@@ -84,6 +84,13 @@ var config = {
 			}
 		},
 		{
+			module: 'MMM-AirQuality',
+			position: 'top_center', // you may choose any location
+			config: {
+			location: 'Cheonan' // the location to check the index for
+		}
+		}
+		{
 			module: "weatherforecast",
 			position: "top_right",
 			header: "NalSi",
