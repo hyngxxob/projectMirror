@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: burlywood;
+}
+.nav__logo{
+    font-size: 50px;
+    color: white;
+    padding-left: 12px;
+}
+.nav__logo i {
+    color: #263342;;
+}
+.nav__menu{
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    font-size: 32px;
+}
+.nav__menu li:hover{
+    background-color: wheat;
+    border-radius: 4px;
+}
+
+.nav__menu li{
+    padding:8px 12px;
+
+}
+
+
+@media screen and  (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+    }
+    .nav__menu{
+        flex-direction: column;
+        align-items: center;
+        width:100%
+    }
+    .nav__menu li{
+        width: 100%;
+        text-align: center;
+    }
+}
